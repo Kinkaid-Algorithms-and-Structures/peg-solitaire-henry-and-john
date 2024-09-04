@@ -15,4 +15,7 @@ class peg_board:
                     self.board[i][j] = True
                 spot += 1
         print(self.board)
-
+    #when moving up, move the same amount to the left
+    #when moving down, move the same amount to the right
+    def make_move(self, start_pos, end_pos):
+        pass
