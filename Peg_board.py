@@ -18,4 +18,5 @@ class peg_board:
     #when moving up, move the same amount to the left
     #when moving down, move the same amount to the right
     def make_move(self, start_pos, end_pos):
+        #comment
         pass
