@@ -4,5 +4,7 @@ def get_hole_pos():
     while user_choice not in choices:
         user_choice = input("Invalid choice.").lower()
     return user_choice
+    print(user_choice," Is the position sected to have an empty hole.")
 
-
+def printing_board():
+    pass
