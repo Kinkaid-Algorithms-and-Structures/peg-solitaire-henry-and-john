@@ -11,6 +11,7 @@ class peg_board:
         ]
     def board_setup(self, empty_space):
         coords = self.convert_index_to_coords(empty_space)
+        print(coords)
         self.board[coords[1]][coords[0]] = False
         print(self.board)
     #when moving up, move the same amount to the left
@@ -25,7 +26,8 @@ class peg_board:
     # turns a given index into 2 indices that can be used to access locations on the board
     # outputs a tuple of (x, y)
     def convert_index_to_coords(self, index):
-        x_pos = index - self.length_formula(self.y_formula(index))
+        x_pos = (index - self.length_formula(self.y_formula(index)))
+        print(self.length_formula(self.y_formula(index)))
         y_pos = self.y_formula(index)
         return x_pos, y_pos
 
@@ -36,7 +38,7 @@ class peg_board:
     # returns the total length to list n in board
     # ex. if n = 3, this will return the lengths of lists 2, 1, and 0, equalling 6
     def length_formula(self, n):
-        return (n ** 2) + n
+        return (int)(((n ** 2) + n)/2)
 
     # returns the y position of a given index in board
     # inverse of length_formula
