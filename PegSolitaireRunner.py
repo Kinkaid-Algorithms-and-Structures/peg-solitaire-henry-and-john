@@ -1,6 +1,6 @@
 import logging, datetime, Peg_board, Referee
 from KinkaidDecorators import log_start_stop_method
-from Referee import get_hole_pos
+from Referee import get_hole_pos, printing_board
 
 logging.basicConfig(level=logging.INFO)  # simple version to the output console
 # logging.basicConfig(level=logging.DEBUG, filename=f"log {datetime.datetime.now():%m-%d@%H:%M:%S}.txt",
@@ -16,7 +16,10 @@ class PegSolitaireRunner:
     def play_game(self):  # note: this is complaining (grey underline) that it could be static because it doesn't use
         # any variables or methods from "self." Once you do, it will stop pestering you about it.
         self.board.board_setup((int)(get_hole_pos()))
+        printing_board()
+
 
 if __name__ == "__main__":
     game = PegSolitaireRunner()
     game.play_game()
+
