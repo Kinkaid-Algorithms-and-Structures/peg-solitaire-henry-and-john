@@ -11,6 +11,15 @@ class peg_board:
             [True, True, True, True, True]
         ]
 
+    # returns the value at an index in the board (boolean)
+    def get_value_at_index(self, index):
+        pos = self.convert_index_to_coords(index)
+        return self.board[pos[1]][pos[0]]
+    def get_char_at_index(self, index):
+        if self.get_value_at_index(index):
+            return "ø"
+        else:
+            return "o"
     def board_setup(self, empty_space):
         # for i in range(15):
         #     print(self.convert_index_to_coords(i))
