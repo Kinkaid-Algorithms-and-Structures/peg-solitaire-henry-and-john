@@ -1,5 +1,6 @@
 import logging, datetime, Peg_board, Referee
 from KinkaidDecorators import log_start_stop_method
+from Peg_board import peg_board
 from Referee import get_hole_pos, printing_board
 
 logging.basicConfig(level=logging.INFO)  # simple version to the output console
