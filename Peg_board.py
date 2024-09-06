@@ -10,24 +10,29 @@ class peg_board:
              [True, True, True, True, True]
         ]
     def board_setup(self, empty_space):
+        # for i in range(15):
+        #     print(self.convert_index_to_coords(i))
         coords = self.convert_index_to_coords(empty_space)
         print(coords)
         self.board[coords[1]][coords[0]] = False
-        print(self.board)
     #when moving up, move the same amount to the left
     #when moving down, move the same amount to the right
     def make_move(self, start_index, end_index):
         start_pos = self.convert_index_to_coords(start_index)
         end_pos = self.convert_index_to_coords(end_index)
+        mid_pos = (((start_pos[0] + end_pos[0])/2),
+                   ((start_pos[1] + end_pos[1])/2))
         self.board[start_pos[1]][start_pos[0]] = False
         self.board[end_pos[1]][end_pos[0]] = True
-        # not complete, needs to access the point being jumped over
+        self.board[mid_pos[1]][mid_pos[0]] = False
+
 
     # turns a given index into 2 indices that can be used to access locations on the board
     # outputs a tuple of (x, y)
+
     def convert_index_to_coords(self, index):
         x_pos = (index - self.length_formula(self.y_formula(index)))
-        print(self.length_formula(self.y_formula(index)))
+        # print(self.length_formula(self.y_formula(index)))
         y_pos = self.y_formula(index)
         return x_pos, y_pos
 
