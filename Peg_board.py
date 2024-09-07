@@ -1,6 +1,5 @@
 import math
 
-
 class peg_board:
     def __init__(self):
         self.board = [
@@ -31,8 +30,9 @@ class peg_board:
     def make_move(self, start_index, end_index):
         start_pos = self.convert_index_to_coords(start_index)
         end_pos = self.convert_index_to_coords(end_index)
-        mid_pos = (((start_pos[0] + end_pos[0]) / 2),
-                   ((start_pos[1] + end_pos[1]) / 2))
+        mid_pos = ((int)((start_pos[0] + end_pos[0]) / 2),
+                   (int)((start_pos[1] + end_pos[1]) / 2))
+        print(f"{start_pos=}, {mid_pos=}, {end_pos=}")
         if self.is_move_legal(start_pos, mid_pos, end_pos):
             self.board[start_pos[1]][start_pos[0]] = False
             self.board[end_pos[1]][end_pos[0]] = True
@@ -67,9 +67,10 @@ class peg_board:
         # check if distance between start and end are either 2 or 4 (the only legal distances)
         if abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 2 and \
                 abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 4:
+            print("bad locations")
             return False
         #  check if the pegs are in the correct spots for a jump
-        if not self.board[start_pos[1]][start_pos[0]] or not self.board[mid_pos[1]][mid_pos[0]] or \
-                self.board[end_pos[1]][end_pos[0]]:
+        if (not self.board[start_pos[1]][start_pos[0]]) or (not self.board[mid_pos[1]][mid_pos[0]]) or \
+                (self.board[end_pos[1]][end_pos[0]]):
             return False
         return True
