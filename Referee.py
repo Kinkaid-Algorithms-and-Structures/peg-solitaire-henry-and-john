@@ -43,10 +43,10 @@ class referee:
     def run_turn(self):
         # not actually an infinite loop because it returns when the player makes a legal move (ik its suspicious code)
         while True:
-            self.move_counter += 1
             start_index = (int) (input("Where is the peg that you want to move? "))
             end_index = (int) (input("Where do you want the peg to go? "))
             if self.board.make_move(start_index-1, end_index-1):
+                self.move_counter += 1
                 print("move made")
                 return True
             else:
