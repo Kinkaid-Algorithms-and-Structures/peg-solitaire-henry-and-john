@@ -22,6 +22,13 @@ class PegSolitaireRunner:
         while True:
             self.ref.run_turn()
             self.ref.printing_board()
+            print(self.ref.move_counter)
+            if self.ref.check_end_of_game():
+                if self.ref.check_win():
+                    print("You win :)")
+                else:
+                    print("You lost :/")
+                break
 
 
 if __name__ == "__main__":

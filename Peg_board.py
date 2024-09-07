@@ -64,10 +64,16 @@ class peg_board:
         return math.floor(math.sqrt((2 * index) + .25) - .5)
 
     def is_move_legal(self, start_pos, mid_pos, end_pos):
+        # print(f"{start_pos=}, {end_pos=}")
+        # checks if the start or end are out of bounds.
+        # no need to check the middle because if the middle is out of bounds, one of the others is out of bounds.
+        if start_pos[0] > start_pos[1] or start_pos[0] < 0 or end_pos[0] > end_pos[1] or end_pos[0] < 0 or \
+                start_pos[1] > 4 or start_pos[1] < 0 or end_pos[1] > 4 or end_pos[1] < 0:
+            return False
         # check if distance between start and end are either 2 or 4 (the only legal distances)
         if abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 2 and \
                 abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 4:
-            print("bad locations")
+            # print("bad locations")
             return False
         #  check if the pegs are in the correct spots for a jump
         if (not self.board[start_pos[1]][start_pos[0]]) or (not self.board[mid_pos[1]][mid_pos[0]]) or \
