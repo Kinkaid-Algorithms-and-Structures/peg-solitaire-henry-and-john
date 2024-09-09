@@ -29,7 +29,7 @@ class referee:
     def printing_board(self):
         print("here is the board!\n"
         
-                      "              1 \n"
+                      "               1 \n"
                      f"               {self.board.get_char_at_index(0)} \n"
                     "             2/ \\3 \n"
                    f"             {self.board.get_char_at_index(1)} — {self.board.get_char_at_index(2)} \n"
