@@ -33,7 +33,7 @@ class peg_board:
         mid_pos = ((int)((start_pos[0] + end_pos[0]) / 2),
                    (int)((start_pos[1] + end_pos[1]) / 2))
         print(f"{start_pos=}, {mid_pos=}, {end_pos=}")
-        if self.is_move_legal(start_pos, mid_pos, end_pos):
+        if self.is_move_legal(start_pos, mid_pos, end_pos, True):
             self.board[start_pos[1]][start_pos[0]] = False
             self.board[end_pos[1]][end_pos[0]] = True
             self.board[mid_pos[1]][mid_pos[0]] = False
@@ -63,24 +63,32 @@ class peg_board:
     def y_formula(self, index):
         return math.floor(math.sqrt((2 * index) + .25) - .5)
 
-    def is_move_legal(self, start_pos, mid_pos, end_pos):
+    def is_move_legal(self, start_pos, mid_pos, end_pos, print_reason):
         # print(f"{start_pos=}, {end_pos=}")
         # checks if the start or end are out of bounds.
         # no need to check the middle because if the middle is out of bounds, one of the others is out of bounds.
         if start_pos[0] > start_pos[1] or start_pos[0] < 0 or end_pos[0] > end_pos[1] or end_pos[0] < 0 or \
                 start_pos[1] > 4 or start_pos[1] < 0 or end_pos[1] > 4 or end_pos[1] < 0:
+            if print_reason:
+                print("out of bounds")
             return False
-        # check if distance between start and end are either 2 or 4 (the only legal distances)
-        if abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 2 and \
-                abs(start_pos[0] - end_pos[0]) + abs(start_pos[1] - end_pos[1]) != 4:
-            # print("bad locations")
+        # check if distance between x positions are 0 or 2 and if difference between y positions are 0 or 2,
+        # and also checks if the start and end are the same
+        if abs(start_pos[0] - end_pos[0]) != 0 and abs(start_pos[0] - end_pos[0]) != 2 and \
+                abs(start_pos[1] - end_pos[1]) != 0 and abs(start_pos[1] - end_pos[1]) != 2 or \
+                start_pos == end_pos:
+            if print_reason:
+                print("illegal end position")
             return False
         # if the offsets are (+2, +2) or (+2, -2), then the move is actually illegal, but they get past the if statement above
         if end_pos[0] - start_pos[0] == 2 and end_pos[1] - start_pos[1] != 0:
-            # print("weird diagonal interaction")
+            if print_reason:
+                print("forbidden diagonal jump")
             return False
         #  check if the pegs are in the correct spots for a jump
         if (not self.board[start_pos[1]][start_pos[0]]) or (not self.board[mid_pos[1]][mid_pos[0]]) or \
                 (self.board[end_pos[1]][end_pos[0]]):
+            if print_reason:
+                print("pegs not in right spots")
             return False
         return True

@@ -49,8 +49,6 @@ class referee:
                 self.move_counter += 1
                 print("move made")
                 return True
-            else:
-                print("illegal move")
 
     def check_end_of_game(self):
         for i in range(15):
@@ -67,7 +65,7 @@ class referee:
                 mid_pos = (int((start_pos[0] + end_pos[0]) / 2),
                            int((start_pos[1] + end_pos[1]) / 2))
                 # print(f"{start_pos=}, {end_pos=}")
-                if self.board.is_move_legal(start_pos, mid_pos, end_pos):
+                if self.board.is_move_legal(start_pos, mid_pos, end_pos, False):
                     return False
         return True
 
