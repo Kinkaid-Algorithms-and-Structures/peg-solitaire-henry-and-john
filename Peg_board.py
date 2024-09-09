@@ -77,7 +77,7 @@ class peg_board:
             return False
         # if the offsets are (+2, +2) or (+2, -2), then the move is actually illegal, but they get past the if statement above
         if end_pos[0] - start_pos[0] == 2 and end_pos[0] - start_pos[0] != 0:
-                return False
+            return False
         #  check if the pegs are in the correct spots for a jump
         if (not self.board[start_pos[1]][start_pos[0]]) or (not self.board[mid_pos[1]][mid_pos[0]]) or \
                 (self.board[end_pos[1]][end_pos[0]]):

@@ -30,9 +30,9 @@ class referee:
         print("here is the board!\n"
         
                       "              1 \n"
-                     f"              {self.board.get_char_at_index(0)} \n"
+                     f"               {self.board.get_char_at_index(0)} \n"
                     "             2/ \\3 \n"
-                   f"            {self.board.get_char_at_index(1)} — {self.board.get_char_at_index(2)} \n"
+                   f"             {self.board.get_char_at_index(1)} — {self.board.get_char_at_index(2)} \n"
                   "           4/ \\5/ \\6 \n"
                  f"           {self.board.get_char_at_index(3)} — {self.board.get_char_at_index(4)} — {self.board.get_char_at_index(5)} \n"
                 "         7/ \\8/ \\9/ \\10 \n"
