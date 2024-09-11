@@ -50,7 +50,7 @@ class referee:
                     self.move_counter += 1
                     print("move made")
                     return True
-            except:
+            except ValueError:
                 print("make a legal move nerd")
 
 
