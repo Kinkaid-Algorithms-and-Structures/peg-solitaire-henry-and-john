@@ -80,8 +80,9 @@ class peg_board:
             if print_reason:
                 print("illegal end position")
             return False
-        # if the offsets are (+2, +2) or (+2, -2), then the move is actually illegal, but they get past the if statement above
-        if end_pos[0] - start_pos[0] == 2 and end_pos[1] - start_pos[1] != 0:
+        # if the offsets are (+2, +2) or (-2, -2), then the move is actually illegal, but they get past the if statement above
+
+        if -1 * (start_pos[0]-end_pos[0]) == start_pos[1]-end_pos[1]:
             if print_reason:
                 print("forbidden diagonal jump")
             return False
