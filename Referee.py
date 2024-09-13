@@ -1,9 +1,9 @@
 import Peg_board
 import math
 
-class referee:
+class Referee:
     def __init__(self):
-        self.board = Peg_board.peg_board()
+        self.board = Peg_board.Peg_board()
         self.move_counter = 0
     def get_hole_pos(self):
         choices = ['1', '2', '3', '4','5','6','7','8','9','10','11','12','13','14','15']

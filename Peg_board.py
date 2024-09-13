@@ -1,6 +1,6 @@
 import math
 
-class peg_board:
+class Peg_board:
     def __init__(self):
         self.board = [
             [True],

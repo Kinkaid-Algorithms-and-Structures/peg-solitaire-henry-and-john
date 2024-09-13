@@ -1,6 +1,5 @@
 import logging, datetime, Peg_board, Referee
 from KinkaidDecorators import log_start_stop_method
-from Peg_board import peg_board
 import Referee
 
 logging.basicConfig(level=logging.INFO)  # simple version to the output console
@@ -11,7 +10,7 @@ logging.basicConfig(level=logging.INFO)  # simple version to the output console
 class PegSolitaireRunner:
     def __init__(self):
         logging.info("Initializing.")
-        self.ref = Referee.referee()
+        self.ref = Referee.Referee()
     
     @log_start_stop_method
     def play_game(self):  # note: this is complaining (grey underline) that it could be static because it doesn't use
