@@ -23,7 +23,7 @@ class peg_board:
         # for i in range(15):
         #     print(self.convert_index_to_coords(i))
         coords = self.convert_index_to_coords(empty_space)
-        print(coords)
+        # print(coords)
         self.board[coords[1]][coords[0]] = False
 
     # returns true if the move went through, returns false otherwise
@@ -32,7 +32,7 @@ class peg_board:
         end_pos = self.convert_index_to_coords(end_index)
         mid_pos = ((int)((start_pos[0] + end_pos[0]) / 2),
                    (int)((start_pos[1] + end_pos[1]) / 2))
-        print(f"{start_pos=}, {mid_pos=}, {end_pos=}")
+        # print(f"{start_pos=}, {mid_pos=}, {end_pos=}")
         if self.is_move_legal(start_pos, mid_pos, end_pos, True):
             self.board[start_pos[1]][start_pos[0]] = False
             self.board[end_pos[1]][end_pos[0]] = True

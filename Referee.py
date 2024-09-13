@@ -22,9 +22,8 @@ class referee:
         user_choice = input("Enter a hole to leave empty.").lower()
 
         while user_choice not in choices:
-            user_choice = input("Invalid choice.").lower()
+            user_choice = input("Invalid choice. Try again. ").lower()
         return user_choice
-        print(user_choice," Is the position sected to have an empty hole.")
 
     def printing_board(self):
         print("here is the board!\n"
@@ -48,10 +47,10 @@ class referee:
                 end_index = int(input("Where do you want the peg to go? "))
                 if self.board.make_move(start_index - 1, end_index - 1):
                     self.move_counter += 1
-                    print("move made")
+                    # print("move made")
                     return True
             except ValueError:
-                print("make a legal move nerd")
+                print("The position must be an integer.")
 
 
 
