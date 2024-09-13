@@ -2,8 +2,8 @@ import Peg_board
 import math
 
 class referee:
-    def __init__(self, board):
-        self.board = board
+    def __init__(self):
+        self.board = Peg_board.peg_board()
         self.move_counter = 0
     def get_hole_pos(self):
         choices = ['1', '2', '3', '4','5','6','7','8','9','10','11','12','13','14','15']
@@ -23,7 +23,7 @@ class referee:
 
         while user_choice not in choices:
             user_choice = input("Invalid choice. Try again. ").lower()
-        return user_choice
+        self.board.board_setup(int(user_choice) - 1)
 
     def printing_board(self):
         print("here is the board!\n"
